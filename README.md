@@ -20,7 +20,51 @@ pip install parent-lookup
 API:
 
 ```py
-from parent_lookup import ...
+from parent_lookup import TParent, is_child_lookup, lookup_registry
+
+class Child:
+    def __init__(self) -> None:
+        pass
+
+    @overload
+    def find_parent(self, parent_type: type[TParent]) -> TParent | None:
+        pass
+
+    @overload
+    def find_parent(self, parent_type: TParent) -> TParent | None:
+        pass
+
+    def find_parent(self, parent_type: type[TParent] | TParent) -> TParent | None:
+        return lookup_registry.lookup_parent(self, parent_type)
+
+
+class Parent:
+    def __init__(self) -> None:
+        self._childs: list[Child] = []
+
+    def __new__(
+        cls,
+    ) -> Parent:
+        instance = super().__new__(cls)
+        lookup_registry.register_parent(instance)
+        return instance
+
+    def add_child(self, child: Child) -> None:
+        self._childs.append(child)
+
+    @property
+    @is_child_lookup
+    def childs(self) -> list[Child]:
+        return self._childs
+
+# Create two objects: A parent object and a child object
+parent = Parent()
+child = Child()
+# Add child to parent
+parent.add_child(child)
+# Lookup parent from child
+found_parent = child.find_parent(Parent)
+assert found_parent is parent
 ```
 
 _For more examples and usage, please refer to parent-lookup's [documentation][parent_lookup_docs]._
