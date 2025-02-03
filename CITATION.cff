@@ -1,0 +1,19 @@
+title: parent-lookup
+version: 0.1.0
+abstract: >-
+  Python package enabling a child object to dynamically lookup its parent at runtime.
+type: software
+authors:
+  - given-names: Claas
+    family-names: Rostock
+    website: 'https://www.linkedin.com/in/claasrostock/?locale=en_US'
+keywords:
+  - parent
+  - child
+  - lookup
+license: MIT
+license-url: 'https://ClaasRostock.github.io/parent-lookup/LICENSE.html'
+url: 'https://ClaasRostock.github.io/parent-lookup/README.html'
+repository-code: 'https://github.com/ClaasRostock/parent-lookup'
+message: 'Please cite this software using these metadata.'
+cff-version: 1.2.0

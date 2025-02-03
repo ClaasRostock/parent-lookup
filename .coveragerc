@@ -1,0 +1,13 @@
+[paths]
+source =
+    src/parent_lookup
+    */site-packages/parent_lookup
+
+[run]
+source = parent_lookup
+branch = True
+
+[report]
+fail_under = 10.0
+show_missing = True
+skip_covered = True
