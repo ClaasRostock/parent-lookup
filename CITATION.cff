@@ -1,5 +1,5 @@
 title: parent-lookup
-version: 0.1.0
+version: 0.1.1
 abstract: >-
   Python package enabling a child object to dynamically lookup its parent at runtime.
 type: software
