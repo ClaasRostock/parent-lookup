@@ -6,6 +6,8 @@ type: software
 authors:
   - given-names: Claas
     family-names: Rostock
+    affiliation: DNV
+    email: claas.rostock@dnv.com
     website: 'https://www.linkedin.com/in/claasrostock/?locale=en_US'
 keywords:
   - parent
