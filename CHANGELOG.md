@@ -5,6 +5,17 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
+-/-
+
+
+## [0.2.1] - 2025-11-23
+
+### Added
+* Added support for Python 3.14
+
+### Removed
+* Removed support for Python 3.10
+
 ### Dependencies
 * Updated to ruff>=0.14.3  (from ruff>=0.9.2)
 * Updated to pyright>=1.1.407  (from pyright>=1.1.392)
@@ -22,29 +33,35 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Updated to setup-uv@v7  (from setup-uv@v5)
 * Updated to upload-artifact@v5  (from upload-artifact@v4)
 * Updated to download-artifact@v5  (from download-artifact@v4)
-* pyproject.toml: added required-environments to uv.tools (windows, linux, macos)
-* pyproject.toml: updated required Python version to ">= 3.11, < 3.15"
-* pyproject.toml: updated supported Python versions to 3.11, 3.12, 3.13, 3.14
-* ruff.toml: updated target Python version to "py311"
-* .sourcery.yaml: updated the lowest Python version the project supports to '3.11'
-* pyproject.toml: removed deprecated pyright setting 'reportShadowedImports'
-* pyproject.toml: removed leading carets and trailing slashes from 'exclude' paths
-* pyproject.toml: removed trailing slashes from 'exclude' paths
-* GitHub workflow _test.yml: updated Python versions in test matrix to 3.11, 3.12, 3.13, 3.14
-* GitHub workflow _test_future.yml: updated Python version in test_future to 3.15.0-alpha - 3.15.0
-* GitHub workflow _test_future.yml: updated name of test_future job to 'test315'
-* GitHub workflow _test_future.yml: updated Python specifier in comment to 3.15
-* GitHub workflow _test_future.yml: updated Python specifier in workflow name to py315
-* .pre-commit-config.yaml: updated rev of pre-commit-hooks to v6.0.0
-* .pre-commit-config.yaml: updated rev of ruff-pre-commit to v0.14.3
-* .pre-commit-config.yaml: updated id of ruff to ruff-check
-* Sphinx conf.py: removed ruff rule exception on file level
-* VS Code settings: (Recommended extensions) Removed deprecated Intellicode extension and replaced it by Github Copilot Chat as recommended replacement.
-* VS Code settings: Updated 'mypy-type-checker.reportingScope' to 'custom'.
 
 ### Changed
 * Do not run code quality checks in nightly builds
 * Included uv.lock file in version control
+* pyproject.toml:
+  * added required-environments to uv.tools (windows, linux, macos)
+  * updated required Python version to ">= 3.11, < 3.15"
+  * updated supported Python versions to 3.11, 3.12, 3.13, 3.14
+  * removed deprecated pyright setting 'reportShadowedImports'
+  * removed leading carets and trailing slashes from 'exclude' paths
+  * removed trailing slashes from 'exclude' paths
+* ruff.toml:
+  * updated target Python version to "py311"
+  * Added file-specific ignores for docs/source/conf.py
+* .sourcery.yaml:
+  * updated the lowest Python version the project supports to '3.11'
+* GitHub workflow _test.yml:
+  * updated Python versions in test matrix to 3.11, 3.12, 3.13, 3.14
+* GitHub workflow _test_future.yml:
+  * updated Python version in test_future to 3.15.0-alpha - 3.15.0
+* .pre-commit-config.yaml:
+  * updated rev of pre-commit-hooks to v6.0.0
+  * updated rev of ruff-pre-commit to v0.14.3
+  * updated id of ruff to ruff-check
+* Sphinx conf.py:
+  * removed ruff rule exception on file level
+* VS Code settings:
+  * (Recommended extensions) Removed deprecated Intellicode extension and replaced it by Github Copilot Chat as recommended replacement.
+  * Updated 'mypy-type-checker.reportingScope' to 'custom'.
 
 
 ## [0.2.0] - 2025-02-03
@@ -89,8 +106,9 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/ClaasRostock/parent-lookup/releases/tag/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/ClaasRostock/parent-lookup/releases/tag/v0.0.1...v0.1.1
+[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/ClaasRostock/parent-lookup/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.0.1...v0.1.1
 [0.0.1]: https://github.com/ClaasRostock/parent-lookup/releases/tag/v0.0.1
 [parent-lookup]: https://github.com/ClaasRostock/parent-lookup
