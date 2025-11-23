@@ -72,7 +72,7 @@ Changelog = "https://github.com/ClaasRostock/parent-lookup/blob/main/CHANGELOG.m
 [dependency-groups]
 dev = [
     "pytest>=8.4",
-    "pytest-cov>=6.0",
+    "pytest-cov>=7.0",
     "ruff>=0.14.3",
     "pyright>=1.1.407",
     "mypy>=1.14",
