@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from typing import TypeVar
-
-from typing_extensions import Self
+from typing import Self, TypeVar
 
 from parent_lookup.lookup import lookup_registry
 
