@@ -60,7 +60,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Sphinx conf.py:
   * removed ruff rule exception on file level
 * VS Code settings:
-  * (Recommended extensions) Removed deprecated Intellicode extension and replaced it by Github Copilot Chat as recommended replacement.
+  * (Recommended extensions) Removed deprecated IntelliCode extension and replaced it by GitHub Copilot Chat as recommended replacement.
   * Updated 'mypy-type-checker.reportingScope' to 'custom'.
 
 
