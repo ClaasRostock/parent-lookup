@@ -44,11 +44,7 @@ class LookupRegistry:
 
     # TODO @ClaasRostock: Change return type to Self once Python 3.10 support is dropped.
     #      ClaasRostock, 2025-02-03
-    def __new__(  # noqa: D102, PYI034
-        cls,
-        *args: Any,  # noqa: ANN401, ARG003
-        **kwargs: Any,  # noqa: ANN401, ARG003
-    ) -> LookupRegistry:
+    def __new__(cls) -> LookupRegistry:  # noqa: D102, PYI034
         if not hasattr(cls, "instance"):
             cls.instance = super().__new__(cls)
         return cls.instance
@@ -118,14 +114,14 @@ class LookupRegistry:
         for child_type in matching_child_types_registered:
             matching_parent_types_registered: list[type[Any]]
             if inspect.isclass(parent):
-                parent = cast(type[TParent], parent)
+                parent = cast("type[TParent]", parent)
                 matching_parent_types_registered = [
                     parent_type
                     for parent_type in self._bound_lookup_functions[child_type]
                     if issubclass(parent_type, parent)
                 ]
             else:
-                parent = cast(TParent, parent)
+                parent = cast("TParent", parent)
                 matching_parent_types_registered = [
                     parent_type
                     for parent_type in self._bound_lookup_functions[child_type]
@@ -154,7 +150,7 @@ class LookupRegistry:
                             childs_in_parent = [childs_in_parent]
                         for child_in_parent in childs_in_parent:
                             if child_in_parent is child:
-                                return cast(TParent, _parent)
+                                return cast("TParent", _parent)
 
         return None
 

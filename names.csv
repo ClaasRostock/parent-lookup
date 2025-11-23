@@ -1,0 +1,26 @@
+Variable,Value
+PackageNameDashed,parent-lookup
+PackageNameCapitalized,ParentLookup
+GitHubOrganisation,ClaasRostock
+SubPackage1Name,
+Module1Name,
+SubPackage2Name,
+Module2Name,
+Author1Name,Claas Rostock
+Author1Email,claas.rostock@dnv.com
+Author1LinkedIn,https://www.linkedin.com/in/claasrostock/?locale=en_US
+Author2Name,
+Author2Email,
+Author2LinkedIn,
+Author3Name,
+Author3Email,
+Author3LinkedIn,
+Maintainer1Name,Claas Rostock
+Maintainer1Email,claas.rostock@dnv.com
+Maintainer1LinkedIn,https://www.linkedin.com/in/claasrostock/?locale=en_US
+Maintainer2Name,
+Maintainer2Email,
+Maintainer2LinkedIn,
+Keyword1,parent
+Keyword2,child
+Keyword3,lookup

@@ -180,8 +180,6 @@ Copyright (c) 2025 [Claas Rostock](https://github.com/ClaasRostock). All rights 
 
 Claas Rostock - [@LinkedIn](https://www.linkedin.com/in/claasrostock/?locale=en_US) - claas.rostock@dnv.com
 
-
-
 Distributed under the MIT license. See [LICENSE](LICENSE.md) for more information.
 
 [https://github.com/ClaasRostock/parent-lookup](https://github.com/ClaasRostock/parent-lookup)
