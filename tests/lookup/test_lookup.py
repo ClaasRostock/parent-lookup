@@ -1,19 +1,16 @@
 # pyright: reportPrivateUsage=false
-# sourcery skip: dont-import-test-modules
-
-# sourcery skip: dont-import-test-modules
 
 from copy import deepcopy
 
-from tests.lookup.child_module import Child, SpecialChild
-from tests.lookup.child_module_with_future_annotations import (
+from child_module import Child, SpecialChild
+from child_module_with_future_annotations import (
     ChildWithFutureAnnotations,
     SpecialChildWithFutureAnnotations,
 )
-from tests.lookup.custom_child_module import CustomChild, CustomSpecialChild
-from tests.lookup.custom_parent_module import CustomParent, CustomSpecialParent
-from tests.lookup.parent_module import Parent
-from tests.lookup.parent_module_with_future_annotations import ParentWithFutureAnnotations
+from custom_child_module import CustomChild, CustomSpecialChild
+from custom_parent_module import CustomParent, CustomSpecialParent
+from parent_module import Parent
+from parent_module_with_future_annotations import ParentWithFutureAnnotations
 
 
 class DummyChild:

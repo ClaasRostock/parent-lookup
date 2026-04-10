@@ -319,7 +319,7 @@ class LookupRegistry:
         with contextlib.suppress(Exception):
             _getter_functions = inspect.getmembers(
                 obj,
-                lambda member: (hasattr(member, "__name__") and str(member.__name__).__contains__("fget")),
+                lambda member: hasattr(member, "__name__") and str(member.__name__).__contains__("fget"),
             )
         with contextlib.suppress(Exception):
             _functions = inspect.getmembers(

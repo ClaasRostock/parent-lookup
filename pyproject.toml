@@ -11,7 +11,6 @@ only-include = [
     ".coveragerc",
     ".editorconfig",
     ".pre-commit-config.yaml",
-    "manage.py",
     "pyproject.toml",
     "pytest.ini",
     "ruff.toml",
@@ -23,12 +22,15 @@ packages = [
     "src/parent_lookup",
 ]
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [project]
 name = "parent-lookup"
-version = "0.2.1"
+version = "0.2.2"
 description = "Python package enabling a child object to dynamically lookup its parent at runtime."
 readme = "README.md"
-requires-python = ">= 3.11, < 3.15"
+requires-python = ">= 3.11"
 license = { file = "LICENSE" }
 authors = [
     { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
@@ -71,20 +73,20 @@ Changelog = "https://github.com/ClaasRostock/parent-lookup/blob/main/CHANGELOG.m
 
 [dependency-groups]
 dev = [
-    "pytest>=8.4",
-    "pytest-cov>=7.0",
-    "ruff>=0.14.3",
-    "pyright>=1.1.407",
-    "mypy>=1.18",
-    "sourcery>=1.40",
-    "pre-commit>=4.3",
-    "Sphinx>=8.2",
-    "sphinx-argparse-cli>=1.20",
-    "sphinx-autodoc-typehints>=3.5",
-    "sphinxcontrib-mermaid>=1.0.0",
-    "myst-parser>=4.0",
-    "furo>=2025.9",
-    "jupyter>=1.1",
+    "pytest>=9.0",
+    "pytest-cov>=7.1",
+    "ruff>=0.15.9",
+    "pyright>=1.1.408",
+    "mypy>=1.19.1",
+    "sourcery>=1.43.0",
+    "pre-commit>=4.5",
+    "Sphinx>=9.0",
+    "sphinx-argparse-cli>=1.21.3",
+    "sphinx-autodoc-typehints>=3.6",
+    "sphinxcontrib-mermaid>=2.0",
+    "myst-parser>=5.0",
+    "furo>=2025.12",
+    "jupyter>=1.1.1",
 ]
 
 [tool.uv]
@@ -100,8 +102,7 @@ required-environments = [
 
 
 [tool.mypy]
-plugins = [
-]
+plugins = []
 mypy_path = "stubs"
 files = [
     "src",
@@ -126,6 +127,10 @@ include = [
     # "demos",
 ]
 exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.*",
+    ".venv",
     "src/folder_to_be_excluded",
 ]
 
