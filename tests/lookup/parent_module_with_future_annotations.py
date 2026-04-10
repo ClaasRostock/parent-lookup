@@ -1,7 +1,6 @@
-# sourcery skip: dont-import-test-modules
 from __future__ import annotations
 
-from tests.lookup.child_module_with_future_annotations import ChildWithFutureAnnotations  # noqa: TC002
+from child_module_with_future_annotations import ChildWithFutureAnnotations  # noqa: TC002
 
 from parent_lookup.lookup import is_child_lookup, lookup_registry
 

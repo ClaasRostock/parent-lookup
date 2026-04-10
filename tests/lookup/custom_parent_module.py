@@ -1,7 +1,5 @@
-# sourcery skip: dont-import-test-modules
-
-from tests.lookup.custom_base_module import CustomBase
-from tests.lookup.custom_child_module import CustomChild
+from custom_base_module import CustomBase
+from custom_child_module import CustomChild
 
 from parent_lookup.lookup import is_child_lookup
 
