@@ -27,7 +27,7 @@ allow-direct-references = true
 
 [project]
 name = "parent-lookup"
-version = "0.2.1"
+version = "0.2.2"
 description = "Python package enabling a child object to dynamically lookup its parent at runtime."
 readme = "README.md"
 requires-python = ">= 3.11"
