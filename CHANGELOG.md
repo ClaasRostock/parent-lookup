@@ -37,6 +37,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   * VS Code Settings: (Recommended extensions): Removed 'njqdev.vscode-python-typehint' (Python Type Hint). Not maintained since 1 year, and the functionality is now covered by GitHub Copilot.
 VS Code Settings: (Recommended extensions): Added 'ms-python.debugpy' (Python Debugger).
 VS Code Settings: (Recommended extensions): Added 'ms-python.vscode-python-envs' (Python Environments).
+* README.md: Updated year in copyright statement to 2026
 
 
 ## [0.2.1] - 2025-11-23
