@@ -1,4 +1,3 @@
-# sourcery skip: dont-import-test-modules
 from __future__ import annotations
 
 from typing import overload

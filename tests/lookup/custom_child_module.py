@@ -1,8 +1,6 @@
-# sourcery skip: dont-import-test-modules
-
 from typing import overload
 
-from tests.lookup.custom_base_module import CustomBase
+from custom_base_module import CustomBase
 
 from parent_lookup.lookup import TParent, lookup_registry
 
