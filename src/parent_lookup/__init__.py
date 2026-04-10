@@ -1,4 +1,4 @@
-"""Python package enabling a child object to dynamically lookup its parent at runtime."""
+"""parent_lookup - Python package enabling a child object to dynamically lookup its parent at runtime."""
 
 from parent_lookup.lookup import (
     TParent,
