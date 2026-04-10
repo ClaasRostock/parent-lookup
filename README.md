@@ -15,7 +15,7 @@ It comprises of a small set of decorators and methods allowing bidirectional par
 pip install parent-lookup
 ```
 
-## Usage Example
+## Usage
 
 API:
 
@@ -90,21 +90,7 @@ Once installed, you can update `uv` to its latest version, anytime, by running:
 uv self update
 ```
 
-### 2. Install Python
-This project requires Python 3.10 or later. <br>
-If you don't already have a compatible version installed on your machine, the probably most comfortable way to install Python is through `uv`:
-```sh
-uv python install
-```
-This will install the latest stable version of Python into the uv Python directory, i.e. as a uv-managed version of Python.
-
-Alternatively, and if you want a standalone version of Python on your machine, you can install Python either via `winget`:
-```sh
-winget install --id Python.Python
-```
-or you can download and install Python from the [python.org](https://www.python.org/downloads/) website.
-
-### 3. Clone the repository
+### 2. Clone the repository
 Clone the parent-lookup repository into your local development directory:
 ```sh
 git clone https://github.com/ClaasRostock/parent-lookup path/to/your/dev/parent-lookup
@@ -114,18 +100,21 @@ Change into the project directory after cloning:
 cd parent-lookup
 ```
 
-### 4. Install dependencies
-Run `uv sync` to create a virtual environment and install all project dependencies into it:
+### 3. Install dependencies
+Run `uv sync -U` to create a virtual environment and install all project dependencies into it:
 ```sh
-uv sync
+uv sync -U
 ```
 > **Note**: Using `--no-dev` will omit installing development dependencies.
 
-> **Note**: `uv` will create a new virtual environment called `.venv` in the project root directory when running
-> `uv sync` the first time. Optionally, you can create your own virtual environment using e.g. `uv venv`, before running
-> `uv sync`.
+> **Explanation**: The `-U` option stands for `--update`. It forces `uv` to fetch and install the latest versions of all dependencies,
+> ensuring that your environment is up-to-date.
 
-### 6. (Optional) Activate the virtual environment
+> **Note**: `uv` will create a new virtual environment called `.venv` in the project root directory when running
+> `uv sync -U` the first time. Optionally, you can create your own virtual environment using e.g. `uv venv`, before running
+> `uv sync -U`.
+
+### 4. (Optional) Activate the virtual environment
 When using `uv`, there is in almost all cases no longer a need to manually activate the virtual environment. <br>
 `uv` will find the `.venv` virtual environment in the working directory or any parent directory, and activate it on the fly whenever you run a command via `uv` inside your project folder structure:
 ```sh
@@ -144,7 +133,7 @@ To manually activate the virtual environment, run one of the "known" legacy comm
 source .venv/bin/activate
 ```
 
-### 7. Install pre-commit hooks
+### 5. Install pre-commit hooks
 The `.pre-commit-config.yaml` file in the project root directory contains a configuration for pre-commit hooks.
 To install the pre-commit hooks defined therein in your local git repository, run:
 ```sh
@@ -168,7 +157,7 @@ To update the hooks configured in `.pre-commit-config.yaml` to their newest vers
 uv run pre-commit autoupdate
 ```
 
-### 8. Test that the installation works
+### 6. Test that the installation works
 To test that the installation works, run pytest in the project root folder:
 ```sh
 uv run pytest
