@@ -5,8 +5,10 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
--/-
+* -/-
 
+
+## [0.2.2] - 2026-04-10
 
 ### Changed
 * GitHub Workflows:
@@ -33,11 +35,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
     That way, we ensure it remains _possible_ for users to find a solution, instead of rendering it impossible forever.
 * Sphinx Documentation:
   * Sphinx conf.py: Updated year in copyright statement to 2026
-* VS Code Settings:
-  * VS Code Settings: (Recommended extensions): Removed 'njqdev.vscode-python-typehint' (Python Type Hint). Not maintained since 1 year, and the functionality is now covered by GitHub Copilot.
-VS Code Settings: (Recommended extensions): Added 'ms-python.debugpy' (Python Debugger).
-VS Code Settings: (Recommended extensions): Added 'ms-python.vscode-python-envs' (Python Environments).
-* README.md: Updated year in copyright statement to 2026
+* VS Code Settings (Recommended extensions):
+  * Removed 'njqdev.vscode-python-typehint' (Python Type Hint). Not maintained since 1 year, and the functionality is now covered by GitHub Copilot.
+  * Added 'ms-python.debugpy' (Python Debugger).
+  * Added 'ms-python.vscode-python-envs' (Python Environments).
+* README.md:
+  * Updated year in copyright statement to 2026
+  * Removed the 'Install Python' step (`### 2. Install Python`), as Python gets automatically installed when running `uv sync` and installing Python separately (non uv-managed Python) is no longer common. Current best practice is to install Python through uv (uv-managed Python).
+* tests/lookup/*.py: Removed \_\_init\_\_.py file and changed import statements to local imports
 
 
 ### Dependencies
@@ -156,7 +161,8 @@ VS Code Settings: (Recommended extensions): Added 'ms-python.vscode-python-envs'
 
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.1...HEAD
+[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/ClaasRostock/parent-lookup/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.0.1...v0.1.1
