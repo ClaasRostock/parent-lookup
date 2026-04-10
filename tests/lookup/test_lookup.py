@@ -1,8 +1,6 @@
 # pyright: reportPrivateUsage=false
 # sourcery skip: dont-import-test-modules
 
-# sourcery skip: dont-import-test-modules
-
 from copy import deepcopy
 
 from tests.lookup.child_module import Child, SpecialChild
