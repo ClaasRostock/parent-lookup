@@ -36,7 +36,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Sphinx Documentation:
   * Sphinx conf.py: Updated year in copyright statement to 2026
 * VS Code Settings (Recommended extensions):
-  * Removed 'njqdev.vscode-python-typehint' (Python Type Hint). Not maintained since 1 year, and the functionality is now covered by GitHub Copilot.
+  * Removed 'njqdev.vscode-python-typehint' (Python Type Hint). Not maintained for a year, and the functionality is now covered by GitHub Copilot.
   * Added 'ms-python.debugpy' (Python Debugger).
   * Added 'ms-python.vscode-python-envs' (Python Environments).
 * README.md:
