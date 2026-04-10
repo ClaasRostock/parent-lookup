@@ -44,7 +44,6 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   * Removed the 'Install Python' step (`### 2. Install Python`), as Python gets automatically installed when running `uv sync` and installing Python separately (non uv-managed Python) is no longer common. Current best practice is to install Python through uv (uv-managed Python).
 * tests/lookup/*.py: Removed \_\_init\_\_.py file and changed import statements to local imports
 
-
 ### Dependencies
 * .pre-commit-config.yaml: Updated rev of ruff-pre-commit to v0.15.9
 * Updated to furo>=2025.12
