@@ -5,7 +5,7 @@ Currently, child classes need to implement several methods in order to support t
 Goal is to develop an additional approach, not replacing but amending the current API, which reduces the necessary declarative and implementation effort for child classes to declare the type(s), i.e. the parent class(es), a child class expects to be a child of and wants to lookup.
 Idea is to implement a `ParentLookup` class that implements the Descriptor protocol. A child class would then be able to declare a parent attribute, assigning an instance of this Descriptor class.
 When this attribute is accessed on a child instance, the `ParentLookup` Descriptor would implement and handle the parent-class specific lookup, i.e. all the code which currently needs to be implemented by each child class.
-The specific parent class (parent type) should be handled as a generic type variable in `ParentLookup`. A user could pass the specific parent type then e.g. as an argument to `ParentLookup`s constructor.
+The specific parent class (parent type) should be handled as a generic type variable in `ParentLookup`. A user could pass the specific parent type then e.g. as an argument to `ParentLookup`'s constructor.
 
 ## Context
 - Relevant modules:/src/parent_lookup/lookup.py
