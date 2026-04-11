@@ -5,13 +5,17 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
+* -/-
+
+
+## [0.2.3] - 2026-04-11
+
 ### Added
+* Added a new generic descriptor API, `ParentLookup`, as an optional alternative to implementing child-side `find_parent` methods.
 * Added project-specific instruction files for agentic coding:
   * `.instructions.md` and `.prompt.md` in root folder (these two instruction files are tool agnostic and generally expected to be consumed by agents)
   * `plans/.plan.md` as a template file for specific plan.md file(s)
   * `.github/copilot-instructions.md` as a GitHub Copilot specific amendment / refinement to `.instructions.md` and `.prompt.md`
-* Added a new generic descriptor API, `ParentLookup`, as an optional alternative to implementing child-side `find_parent` methods.
-* Added descriptor-focused tests for both regular annotations and modules using `from __future__ import annotations`.
 
 
 ## [0.2.2] - 2026-04-10
@@ -167,7 +171,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.2...HEAD
+[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/ClaasRostock/parent-lookup/compare/v0.1.1...v0.2.0
