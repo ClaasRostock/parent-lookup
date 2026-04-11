@@ -11,7 +11,7 @@ import typing
 import weakref
 from collections.abc import Callable
 from types import GenericAlias
-from typing import Any, NamedTuple, TypeVar, cast, overload
+from typing import Any, Generic, NamedTuple, TypeVar, cast, overload
 
 from typing_inspect import get_origin
 
@@ -21,6 +21,46 @@ TParent = TypeVar("TParent")
 TChild = TypeVar("TChild")
 _TLookupFunction = Callable[[TParent], list[TChild]] | Callable[[TParent], TChild]
 TFunc = TypeVar("TFunc")
+
+
+class ParentLookup(Generic[TParent]):
+    """Descriptor that resolves a parent instance for a child object.
+
+    The descriptor is intended for declaration on child classes to avoid
+    repeating explicit ``find_parent`` methods. It delegates lookup resolution
+    to :data:`lookup_registry` and returns ``None`` when no parent is found.
+    """
+
+    def __init__(self, parent_type: type[TParent]) -> None:
+        self._parent_type: type[TParent] = parent_type
+
+    @overload
+    def __get__(self, instance: None, owner: type[object]) -> ParentLookup[TParent]: ...
+
+    @overload
+    def __get__(self, instance: object, owner: type[object]) -> TParent | None: ...
+
+    def __get__(
+        self,
+        instance: object | None,
+        owner: type[object],
+    ) -> ParentLookup[TParent] | TParent | None:
+        """Resolve the configured parent for an instance or return the descriptor.
+
+        Args:
+            instance (object | None): The child instance where the descriptor is
+                accessed. ``None`` when accessed on the class.
+            owner (type[object]): Owner class of this descriptor.
+
+        Returns
+        -------
+            ParentLookup[TParent] | TParent | None: The descriptor when accessed
+            on the class, otherwise the matching parent instance or ``None``.
+        """
+        _ = owner  # owner is part of descriptor protocol but not required here
+        if instance is None:
+            return self
+        return lookup_registry.lookup_parent(instance, self._parent_type)
 
 
 class _BoundLookupFunction(NamedTuple):

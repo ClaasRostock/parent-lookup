@@ -10,7 +10,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   * `.instructions.md` and `.prompt.md` in root folder (these two instruction files are tool agnostic and generally expected to be consumed by agents)
   * `plans/.plan.md` as a template file for specific plan.md file(s)
   * `.github/copilot-instructions.md` as a GitHub Copilot specific amendment / refinement to `.instructions.md` and `.prompt.md`
-
+* Added a new generic descriptor API, `ParentLookup`, as an optional alternative to implementing child-side `find_parent` methods.
+* Added descriptor-focused tests for both regular annotations and modules using `from __future__ import annotations`.
 
 
 ## [0.2.2] - 2026-04-10
