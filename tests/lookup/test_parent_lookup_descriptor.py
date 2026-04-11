@@ -67,6 +67,14 @@ def test_descriptor_on_class_returns_descriptor() -> None:
     assert isinstance(class_level_parent_lookup, ParentLookup)
 
 
+def test_descriptor_returns_none_when_no_parent_registered() -> None:
+    # Prepare
+    child = DescriptorChild()
+    # Execute
+    found_parent = child.parent
+    # Assert
+    assert found_parent is None
+
 def test_descriptor_finds_parent_with_future_annotations() -> None:
     # Prepare
     parent = DescriptorParentWithFutureAnnotations()
