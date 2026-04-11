@@ -52,7 +52,7 @@ They must never redefine or override the intent of `/.instructions.md`.
 
 If multiple instructions apply, resolve conflicts in this order:
 
-1. Scoped `.github/instructions/*.instructions.md` (most specific)
+1. Scoped `.github/instructions/*.instructions.md` (most specific — may only **narrow or refine** root rules, never override or contradict them)
 2. `/.instructions.md`
 3. `/.prompt.md`
 
