@@ -1478,7 +1478,7 @@ wheels = [
 
 [[package]]
 name = "parent-lookup"
-version = "0.2.2"
+version = "0.2.3"
 source = { editable = "." }
 dependencies = [
     { name = "typing-inspect" },
