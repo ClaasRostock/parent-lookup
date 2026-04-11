@@ -75,6 +75,7 @@ def test_descriptor_returns_none_when_no_parent_registered() -> None:
     # Assert
     assert found_parent is None
 
+
 def test_descriptor_finds_parent_with_future_annotations() -> None:
     # Prepare
     parent = DescriptorParentWithFutureAnnotations()
