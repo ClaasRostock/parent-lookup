@@ -67,6 +67,41 @@ found_parent = child.find_parent(Parent)
 assert found_parent is parent
 ```
 
+Descriptor API (optional alternative):
+
+```py
+from parent_lookup import ParentLookup, is_child_lookup, lookup_registry
+
+
+class Parent:
+    def __init__(self) -> None:
+        self._childs: list[Child] = []
+
+    def __new__(cls) -> Parent:
+        instance = super().__new__(cls)
+        lookup_registry.register_parent(instance)
+        return instance
+
+    def add_child(self, child: Child) -> None:
+        self._childs.append(child)
+
+    @property
+    @is_child_lookup
+    def childs(self) -> list[Child]:
+        return self._childs
+
+
+class Child:
+    parent: ParentLookup[Parent] = ParentLookup(Parent)
+
+
+parent = Parent()
+child = Child()
+parent.add_child(child)
+
+assert child.parent is parent
+```
+
 _For more examples and usage, please refer to parent-lookup's [documentation][parent_lookup_docs]._
 
 
