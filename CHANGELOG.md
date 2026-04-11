@@ -5,7 +5,12 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
-* -/-
+### Added
+* Added project specific instruction files for agentic coding:
+  * `.instructions.md` and `.prompt.md` in root folder (these two instruction files are tool agnostic and generally expected to be consumed by agents)
+  * `plans/.plan.md` as a template file for specific plan.md file(s)
+  * `.github/copilot-instructions.md` as a GitHub Copilot specific amendment / refinement to `.instructions.md` and `.prompt.md`
+
 
 
 ## [0.2.2] - 2026-04-10
