@@ -22,7 +22,7 @@ Always load and follow these files first:
 
 - `/plans/plan.md` or `/plans/plan-draft.md` (when present)
   Explicit plan / orchestration artifact for Plan Mode workflows.
-  The presence of `/plans/plan.md` or `/plans/plan-draft.md` file indicates that a plan-first workflow is expected.
+  The presence of `/plans/plan.md` or `/plans/plan-draft.md` indicates that a plan-first workflow is expected.
   `/plans/.plan.md` serves as a template and should not be modified directly.
 
 These files form the **knowledge contract** for this repository and
