@@ -11,7 +11,7 @@ import typing
 import weakref
 from collections.abc import Callable
 from types import GenericAlias
-from typing import Any, Generic, NamedTuple, TypeVar, cast, overload
+from typing import Any, NamedTuple, TypeVar, cast, overload
 
 from typing_inspect import get_origin
 
@@ -20,10 +20,9 @@ logger: logging.Logger = logging.getLogger(__name__)
 TParent = TypeVar("TParent")
 TChild = TypeVar("TChild")
 _TLookupFunction = Callable[[TParent], list[TChild]] | Callable[[TParent], TChild]
-TFunc = TypeVar("TFunc")
 
 
-class ParentLookup(Generic[TParent]):
+class ParentLookup[TParent]:
     """Descriptor that resolves a parent instance for a child object.
 
     The descriptor is intended for declaration on child classes to avoid
@@ -32,6 +31,11 @@ class ParentLookup(Generic[TParent]):
     """
 
     def __init__(self, parent_type: type[TParent]) -> None:
+        """Configure the parent type that this descriptor resolves.
+
+        Args:
+            parent_type: The class of parent objects to look up.
+        """
         self._parent_type: type[TParent] = parent_type
 
     @overload
@@ -48,14 +52,13 @@ class ParentLookup(Generic[TParent]):
         """Resolve the configured parent for an instance or return the descriptor.
 
         Args:
-            instance (object | None): The child instance where the descriptor is
-                accessed. ``None`` when accessed on the class.
-            owner (type[object]): Owner class of this descriptor.
+            instance: The child instance where the descriptor is accessed, or
+                ``None`` when accessed on the class.
+            owner: The class on which the descriptor is defined.
 
-        Returns
-        -------
-            ParentLookup[TParent] | TParent | None: The descriptor when accessed
-            on the class, otherwise the matching parent instance or ``None``.
+        Returns:
+            The descriptor for class access, or the matching parent instance
+            or ``None`` for instance access.
         """
         _ = owner  # owner is part of descriptor protocol but not required here
         if instance is None:
@@ -84,12 +87,14 @@ class LookupRegistry:
 
     # TODO @ClaasRostock: Change return type to Self once Python 3.10 support is dropped.
     #      ClaasRostock, 2025-02-03
-    def __new__(cls) -> LookupRegistry:  # noqa: D102, PYI034
+    def __new__(cls) -> LookupRegistry:  # noqa: PYI034
+        """Return the singleton registry, creating it on first use."""
         if not hasattr(cls, "instance"):
             cls.instance = super().__new__(cls)
         return cls.instance
 
     def __init__(self) -> None:
+        """Initialize the lookup indexes for the singleton registry."""
         # The lookup table is a dictionary of dictionaries of lists
         # It maps child types to parent types to instance bound child lookup functions
         # In other words:
@@ -113,11 +118,8 @@ class LookupRegistry:
         4. Creates and registers bound child lookup functions for the parent object.
 
         Args:
-            parent (TParent): The parent object to be registered.
-
-        Returns
-        -------
-            None
+            parent: The parent object whose child lookup functions are
+                registered.
         """
         parent_type: type[TParent] = type(parent)
         if not self._parent_type_is_registered(parent_type):
@@ -138,12 +140,11 @@ class LookupRegistry:
         """Look up the parent of a given child object.
 
         Args:
-            child (object): The child object for which to find the parent.
-            parent (type[TParent] | TParent): The type or instance of the parent to look for.
+            child: The child object whose parent is being resolved.
+            parent: The parent class or instance to match.
 
-        Returns
-        -------
-            TParent | None: The parent object if found, otherwise None.
+        Returns:
+            The matching parent object, or ``None`` if no parent is found.
         """
         matching_child_types_registered: list[type[Any]] = [
             child_type for child_type in self._bound_lookup_functions if issubclass(type(child), child_type)
@@ -379,10 +380,8 @@ class LookupRegistry:
 lookup_registry: LookupRegistry = LookupRegistry()
 
 
-def is_child_lookup(
-    func: TFunc,
-) -> TFunc:
-    """Decorator to mark a function as a child lookup function."""  # noqa: D401
+def is_child_lookup[TFunc](func: TFunc) -> TFunc:
+    """Mark a parent method as a child lookup function."""
     # create a new attribute on the function object
     func.is_child_lookup = True  # type: ignore[attr-defined]
     return func

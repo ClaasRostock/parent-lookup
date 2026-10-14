@@ -19,6 +19,7 @@ __all__ = [
     "lookup_registry",
 ]
 
+
 def _get_package_version() -> str:
     """Dynamically retrieve the version of `parent-lookup`.
 

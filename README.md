@@ -31,6 +31,7 @@ API:
 ```py
 from parent_lookup import TParent, is_child_lookup, lookup_registry
 
+
 class Child:
     def __init__(self) -> None:
         pass
@@ -65,6 +66,7 @@ class Parent:
     @is_child_lookup
     def childs(self) -> list[Child]:
         return self._childs
+
 
 # Create two objects: A parent object and a child object
 parent = Parent()
