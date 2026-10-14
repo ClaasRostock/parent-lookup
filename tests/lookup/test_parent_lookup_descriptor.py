@@ -1,3 +1,5 @@
+"""Tests for descriptor-based parent lookup behavior."""
+
 from copy import deepcopy
 
 from descriptor_module import DescriptorChild, DescriptorParent, DescriptorSpecialChild
@@ -11,6 +13,7 @@ from parent_lookup import ParentLookup
 
 
 def test_descriptor_finds_parent() -> None:
+    """Resolve a child's parent through the descriptor."""
     # Prepare
     parent = DescriptorParent()
     child = DescriptorChild()
@@ -22,6 +25,7 @@ def test_descriptor_finds_parent() -> None:
 
 
 def test_descriptor_finds_latest_parent() -> None:
+    """Return the latest registered parent containing the descriptor child."""
     # Prepare
     child = DescriptorChild()
     parent1 = DescriptorParent()
@@ -37,6 +41,7 @@ def test_descriptor_finds_latest_parent() -> None:
 
 
 def test_descriptor_finds_parent_after_deepcopy() -> None:
+    """Resolve a copied child through its copied parent descriptor."""
     # Prepare
     parent = DescriptorParent()
     child = DescriptorChild()
@@ -50,6 +55,7 @@ def test_descriptor_finds_parent_after_deepcopy() -> None:
 
 
 def test_descriptor_finds_parent_from_child_subtype() -> None:
+    """Resolve a specialized child through its inherited descriptor."""
     # Prepare
     parent = DescriptorParent()
     child = DescriptorSpecialChild()
@@ -61,6 +67,7 @@ def test_descriptor_finds_parent_from_child_subtype() -> None:
 
 
 def test_descriptor_on_class_returns_descriptor() -> None:
+    """Return the descriptor itself when accessed on the child class."""
     # Execute
     class_level_parent_lookup = DescriptorChild.parent
     # Assert
@@ -68,6 +75,7 @@ def test_descriptor_on_class_returns_descriptor() -> None:
 
 
 def test_descriptor_returns_none_when_no_parent_registered() -> None:
+    """Return None when no registered parent contains the child."""
     # Prepare
     child = DescriptorChild()
     # Execute
@@ -77,6 +85,7 @@ def test_descriptor_returns_none_when_no_parent_registered() -> None:
 
 
 def test_descriptor_finds_parent_with_future_annotations() -> None:
+    """Resolve a parent when fixture annotations are postponed."""
     # Prepare
     parent = DescriptorParentWithFutureAnnotations()
     child = DescriptorChildWithFutureAnnotations()
@@ -88,6 +97,7 @@ def test_descriptor_finds_parent_with_future_annotations() -> None:
 
 
 def test_descriptor_finds_latest_parent_with_future_annotations() -> None:
+    """Prefer the latest parent when fixture annotations are postponed."""
     # Prepare
     child = DescriptorChildWithFutureAnnotations()
     parent1 = DescriptorParentWithFutureAnnotations()
@@ -103,6 +113,7 @@ def test_descriptor_finds_latest_parent_with_future_annotations() -> None:
 
 
 def test_descriptor_finds_parent_after_deepcopy_with_future_annotations() -> None:
+    """Resolve a copied child when fixture annotations are postponed."""
     # Prepare
     parent = DescriptorParentWithFutureAnnotations()
     child = DescriptorChildWithFutureAnnotations()
@@ -116,6 +127,7 @@ def test_descriptor_finds_parent_after_deepcopy_with_future_annotations() -> Non
 
 
 def test_descriptor_finds_parent_from_child_subtype_with_future_annotations() -> None:
+    """Resolve a specialized child using postponed fixture annotations."""
     # Prepare
     parent = DescriptorParentWithFutureAnnotations()
     child = DescriptorSpecialChildWithFutureAnnotations()

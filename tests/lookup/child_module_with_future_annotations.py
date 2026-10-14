@@ -1,3 +1,5 @@
+"""Child fixtures that exercise lookup with postponed annotations."""
+
 from __future__ import annotations
 
 from typing import overload
@@ -6,8 +8,10 @@ from parent_lookup.lookup import TParent, lookup_registry
 
 
 class ChildWithFutureAnnotations:
+    """Child fixture whose parent reference uses postponed annotations."""
+
     def __init__(self) -> None:
-        pass
+        """Initialize a child fixture without additional state."""
 
     @overload
     def find_parent(self, parent_type: type[TParent]) -> TParent | None:
@@ -18,9 +22,20 @@ class ChildWithFutureAnnotations:
         pass
 
     def find_parent(self, parent_type: type[TParent] | TParent) -> TParent | None:
+        """Resolve this child fixture's parent through the lookup registry.
+
+        Args:
+            parent_type: The parent class or instance to match.
+
+        Returns:
+            The matching parent, or ``None`` if no match is registered.
+        """
         return lookup_registry.lookup_parent(self, parent_type)
 
 
 class SpecialChildWithFutureAnnotations(ChildWithFutureAnnotations):
+    """Postponed-annotation child subtype for inheritance lookup tests."""
+
     def __init__(self) -> None:
+        """Initialize a specialized child using the base fixture setup."""
         super().__init__()
