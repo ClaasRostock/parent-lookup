@@ -9,16 +9,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 
 ### Changed
+* Updated code base with latest changes in python_project_template v0.5.2
 * GitHub Workflows:
   * _test_future.yml: Updated name of test_future job to test316
-  * _test_future.yml: Updated Python specifier in comment to 3.16
-  * _test_future.yml: Updated Python specifier in workflow name to py316
 * pyproject.toml:
   * pyproject.toml: Updated required Python version to ">=3.12"
   * pyproject.toml: Updated supported Python versions to 3.12, 3.13, 3.14, 3.15
 * VS Code Settings:
   * VS Code Settings: (Recommended extensions): Removed 'sourcery.sourcery' (Sourcery).
-* .sourcery.yaml: Updated the lowest Python version the project supports to '3.12'
 * ruff.toml: Updated target Python version to "py312"
 
 

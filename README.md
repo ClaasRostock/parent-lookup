@@ -5,7 +5,16 @@
 [![docs](https://img.shields.io/github/actions/workflow/status/ClaasRostock/parent-lookup/.github%2Fworkflows%2Fpush_to_release.yml?label=docs)][parent_lookup_docs]
 
 # parent-lookup
-parent-lookup is a utility Python package enabling a child object to dynamically lookup its parent at runtime. <br>
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development Setup](#development-setup)
+- [Meta](#meta)
+- [Contributing](#contributing)
+
+`parent-lookup` is a utility Python package enabling a child object to dynamically lookup its parent at runtime. <br>
 It comprises of a small set of decorators and methods allowing bidirectional parent-child relationships without hard-coded circular dependencies or circular imports.
 
 
@@ -221,4 +230,4 @@ Distributed under the MIT license. See [LICENSE](LICENSE.md) for more informatio
 For your contribution, please make sure you follow the [STYLEGUIDE](STYLEGUIDE.md) before creating the Pull Request.
 
 <!-- Markdown link & img dfn's -->
-[parent_lookup_docs]: https://ClaasRostock.github.io/parent-lookup/README.html
+[parent_lookup_docs]: https://ClaasRostock.github.io/parent-lookup
