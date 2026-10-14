@@ -10,6 +10,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   `src/parent_lookup/utils/logging.py`.
 
 ### Changed
+* Updated ignore and analysis configuration paths to use example terminology.
 * Updated code base with latest changes in python_project_template v0.5.2
 * GitHub Workflows:
   * _test_future.yml: Updated name of test_future job to test316
