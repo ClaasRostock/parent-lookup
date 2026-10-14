@@ -73,18 +73,18 @@ Changelog = "https://github.com/ClaasRostock/parent-lookup/blob/main/CHANGELOG.m
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0",
+    "pytest>=9.1",
     "pytest-cov>=7.1",
-    "ruff>=0.15.9",
-    "pyright>=1.1.408",
-    "mypy>=1.19.1",
+    "ruff>=0.17.0",
+    "pyright>=1.1.414",
+    "mypy>=2.4",
     "sourcery>=1.43.0",
-    "pre-commit>=4.5",
-    "Sphinx>=9.0",
-    "sphinx-argparse-cli>=1.21.3",
-    "sphinx-autodoc-typehints>=3.6",
-    "sphinxcontrib-mermaid>=2.0",
-    "myst-parser>=5.0",
+    "pre-commit>=4.7",
+    "Sphinx>=9.1",
+    "sphinx-argparse-cli>=1.24.0",
+    "sphinx-autodoc-typehints>=3.13",
+    "sphinxcontrib-mermaid>=2.1",
+    "myst-parser>=5.1",
     "furo>=2025.12",
     "jupyter>=1.1.1",
 ]
