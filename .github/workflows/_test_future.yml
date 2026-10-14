@@ -1,10 +1,10 @@
-name: Unit Tests (py315)
-# Test also with Python 3.15 (experimental; workflow will not fail on error.)
+name: Unit Tests (py316)
+# Test also with Python 3.16 (experimental; workflow will not fail on error.)
 
 on: workflow_call
 
 jobs:
-  test315:
+  test316:
     name: Test (Python ${{ matrix.python.version }}, ${{ matrix.os }}) (experimental)
     continue-on-error: true
     runs-on: ${{ matrix.os }}
@@ -13,8 +13,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         python:
-          - version: '3.15.0-alpha - 3.15.0'
-            uvpy: '3.15'
+          - version: '3.16.0-alpha - 3.16.0'
+            uvpy: '3.16'
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
