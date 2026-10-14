@@ -10,6 +10,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   `src/parent_lookup/utils/logging.py`.
 
 ### Changed
+* Refined type annotations for internal parent and child type lookup helpers.
 * Modernized generic type parameter syntax and completed source docstrings.
 * Updated ignore and analysis configuration paths to use example terminology.
 * Updated code base with latest changes in python_project_template v0.5.2

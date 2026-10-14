@@ -208,7 +208,7 @@ class LookupRegistry:
         lookup_functions: list[LookupFunction] = []
 
         def is_lookup_function(
-            member: Callable[..., Any],
+            member: Callable[..., object],
         ) -> _TLookupFunction[TParent, Any] | None:
             if hasattr(member, "is_child_lookup"):
                 return member
@@ -329,12 +329,12 @@ class LookupRegistry:
 
     def _find_closest_type(
         self,
-        type_to_find: type[Any],
-        registered_types: list[type[Any]],
+        type_to_find: type[object],
+        registered_types: list[type[object]],
         max_distance: int = 999,
-    ) -> type[Any] | None:
+    ) -> type[object] | None:
         parent_super_types = inspect.getmro(type_to_find)
-        closest_super_type: type[Any] | None = None
+        closest_super_type: type[object] | None = None
         best_distance_so_far: int = 999
         # Reverse the list of registered types to prefer the most recently registered types
         registered_types_reversed = list(reversed(registered_types))
@@ -348,9 +348,9 @@ class LookupRegistry:
 
     def _find_exact_type(
         self,
-        type_to_find: type[Any],
-        registered_types: list[type[Any]],
-    ) -> type[Any] | None:
+        type_to_find: type[object],
+        registered_types: list[type[object]],
+    ) -> type[object] | None:
         return self._find_closest_type(type_to_find, registered_types, max_distance=0)
 
     def _get_members(self, obj: object) -> list[tuple[str, Callable[..., object]]]:
