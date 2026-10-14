@@ -36,7 +36,6 @@ def configure_logging(
     --------
         configure_logging(log_level_console="INFO", log_file=Path("app.log"), log_level_file="DEBUG")
     """
-    # sourcery skip: extract-duplicate-method, extract-method
     log_level_console_numeric = getattr(logging, log_level_console.upper(), None)
     if not isinstance(log_level_console_numeric, int):
         raise TypeError(f"Invalid log level to console: {log_level_console_numeric}")

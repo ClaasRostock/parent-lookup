@@ -5,8 +5,9 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
-* -/-
-
+### Removed
+* Removed the remaining Sourcery-specific skip directive from
+  `src/parent_lookup/utils/logging.py`.
 
 ### Changed
 * Updated code base with latest changes in python_project_template v0.5.2
