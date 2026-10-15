@@ -56,6 +56,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   one another.
 * Include `CITATION.cff` in the bump-version skill's manual version propagation
   and stale-version verification.
+* Use repository-relative links to `AGENTS.md` guidance in plan drafts.
 
 
 ## [0.2.3] - 2026-04-11
