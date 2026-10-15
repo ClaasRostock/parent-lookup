@@ -43,6 +43,19 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   * Updated 'upload-artifact' action to v7
 
 
+### Security
+* Pass documentation deployment refs through quoted environment variables instead
+  of interpolating them into shell scripts.
+* Require a valid version tag before building, publishing, or merging a release.
+
+### Fixed
+* Deploy primary documentation only from the exact release branch.
+* Merge the exact release commit through a temporary source branch and clean up
+  that branch after the merge attempt.
+* Isolate push workflow concurrency groups so unrelated CI runs do not cancel
+  one another.
+
+
 ## [0.2.3] - 2026-04-11
 
 ### Added
