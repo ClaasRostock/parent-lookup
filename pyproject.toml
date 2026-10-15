@@ -2,7 +2,7 @@
 
 [project]
 name = "parent-lookup"
-version = "0.2.3"
+version = "0.2.4"
 description = "Python package enabling a child object to dynamically lookup its parent at runtime."
 requires-python = ">=3.12"
 readme = "README.md"
