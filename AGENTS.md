@@ -71,7 +71,7 @@ anchor, inspect the owning file directly.
 - Do not use ambiguous Unicode characters in code or comments (e.g. em-dash `—`, en-dash `–`).
   Use ASCII equivalents (e.g. hyphen `-`).
 - In committed Markdown files, link to other repository files with relative paths
-  (e.g. `../../AGENTS.md#docstrings`), not site-root paths (`/AGENTS.md`),
+  (e.g. `AGENTS.md#docstrings` in a root-level Markdown file), not site-root paths (`/AGENTS.md`),
   which GitHub resolves outside the repository.
 - **Terminal working directory:** All commands assume the **repository root** as the working directory unless stated otherwise.
   When a command must run from a sub-directory, always restore the working directory afterwards.
@@ -268,7 +268,8 @@ uv run pytest -q
   - Never use bare `pip install` or `python` — always route through `uv`.
   - Secrets are passed explicitly via `secrets:` (not `secrets: inherit`).
   - Use `actions/checkout` consistently.
-- After changing `.github/workflows/*.yml`, run `actionlint` on the changed files.
+- After changing a GitHub Actions workflow (`.yml` or `.yaml`) under
+  `.github/workflows/`, run `actionlint` on the changed files.
   If it is not on `PATH` (e.g. after a fresh winget install, before a shell restart),
   locate the executable rather than skipping the check.
   If it is unavailable, record the check as blocked; do not mark it passed.
