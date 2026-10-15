@@ -54,6 +54,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   that branch after the merge attempt.
 * Isolate push workflow concurrency groups so unrelated CI runs do not cancel
   one another.
+* Include `CITATION.cff` in the bump-version skill's manual version propagation
+  and stale-version verification.
 
 
 ## [0.2.3] - 2026-04-11
