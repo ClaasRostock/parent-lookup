@@ -5,7 +5,64 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
-* -/-
+## [0.2.4] - 2026-10-15
+
+### Removed
+* Removed the remaining Sourcery-specific skip directive from
+  `src/parent_lookup/utils/logging.py`.
+
+### Changed
+* Refined type annotations for internal parent and child type lookup helpers.
+* Modernized generic type parameter syntax and completed source docstrings.
+* Updated ignore and analysis configuration paths to use example terminology.
+* Updated code base with latest changes in python_project_template v0.5.2
+* GitHub Workflows:
+  * _test_future.yml: Updated name of test_future job to test316
+* pyproject.toml:
+  * pyproject.toml: Updated required Python version to ">=3.12"
+  * pyproject.toml: Updated supported Python versions to 3.12, 3.13, 3.14, 3.15
+* VS Code Settings:
+  * VS Code Settings: (Recommended extensions): Removed 'sourcery.sourcery' (Sourcery).
+* ruff.toml: Updated target Python version to "py312"
+* Agent instructions: Require `actionlint` for workflow changes and relative
+  repository links in Markdown files.
+* prepare-commits skill: Place changelog entries in the commit with the matching
+  change, and stop and ask the user if interactive commit signing hangs.
+
+
+### Dependencies
+* .pre-commit-config.yaml: Updated rev of ruff-pre-commit to v0.17.0
+* Updated to mypy>=2.4
+* Updated to myst-parser>=5.1
+* Updated to pre-commit>=4.7
+* Updated to pyright>=1.1.414
+* Updated to pytest>=9.1
+* Updated to ruff>=0.17.0
+* Updated to sphinx-argparse-cli>=1.24.0
+* Updated to sphinx-autodoc-typehints>=3.13
+* Updated to Sphinx>=9.1
+* Updated to sphinxcontrib-mermaid>=2.1
+* GitHub Workflows:
+  * Updated 'checkout' action to v7
+  * Updated 'download-artifact' action to v8
+  * Updated 'setup-uv' action to v10.3.0
+  * Updated 'upload-artifact' action to v7
+
+
+### Security
+* Pass documentation deployment refs through quoted environment variables instead
+  of interpolating them into shell scripts.
+* Require a valid version tag before building, publishing, or merging a release.
+
+### Fixed
+* Deploy primary documentation only from the exact release branch.
+* Merge the exact release commit through a temporary source branch and clean up
+  that branch after the merge attempt.
+* Isolate push workflow concurrency groups so unrelated CI runs do not cancel
+  one another.
+* Include `CITATION.cff` in the bump-version skill's manual version propagation
+  and stale-version verification.
+* Use repository-relative links to `AGENTS.md` guidance in plan drafts.
 
 
 ## [0.2.3] - 2026-04-11
@@ -171,7 +228,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.3...HEAD
+[unreleased]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/ClaasRostock/parent-lookup/compare/v0.2.0...v0.2.1
