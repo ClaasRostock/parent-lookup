@@ -1,3 +1,95 @@
+# ===== project metadata =====
+
+[project]
+name = "parent-lookup"
+version = "0.2.3"
+description = "Python package enabling a child object to dynamically lookup its parent at runtime."
+requires-python = ">=3.12"
+readme = "README.md"
+license-files = [ "LICENSE" ]
+authors = [
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+]
+maintainers = [
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+]
+keywords = [
+    "parent",
+    "child",
+    "lookup",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "typing-inspect>=0.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ClaasRostock/parent-lookup"
+Documentation = "https://ClaasRostock.github.io/parent-lookup"
+Repository = "https://github.com/ClaasRostock/parent-lookup.git"
+Issues = "https://github.com/ClaasRostock/parent-lookup/issues"
+Changelog = "https://github.com/ClaasRostock/parent-lookup/blob/main/CHANGELOG.md"
+
+
+# ===== dependency groups (PEP 735) =====
+
+[dependency-groups]
+test = [
+    "pytest>=9.1",
+    "pytest-cov>=7.1",
+    "pytest-dependency>=0.6.0",
+    "pytest-timeout>=2.3.1",
+]
+docs = [
+    "Sphinx>=9.1",
+    "sphinx-argparse-cli>=1.24.0",
+    "sphinx-autodoc-typehints>=3.13",
+    "sphinxcontrib-mermaid>=2.1",
+    "myst-parser>=5.1",
+    "furo>=2025.12",
+]
+dev = [
+    {include-group = "test"},
+    {include-group = "docs"},
+    "ruff>=0.17.0",
+    "pyright>=1.1.414",
+    "mypy>=2.4",
+    "pre-commit>=4.7",
+    "jupyter>=1.1.1",
+]
+
+
+# ===== `uv` settings =====
+
+[tool.uv]
+default-groups = [
+    "dev",
+]
+system-certs = true
+required-environments = [
+    "sys_platform == 'win32'",
+    "sys_platform == 'linux'",
+    "sys_platform == 'darwin'",
+]
+
+
+# ===== build system settings =====
+
 [build-system]
 requires = [
     "hatchling",
@@ -25,81 +117,8 @@ packages = [
 [tool.hatch.metadata]
 allow-direct-references = true
 
-[project]
-name = "parent-lookup"
-version = "0.2.3"
-description = "Python package enabling a child object to dynamically lookup its parent at runtime."
-readme = "README.md"
-requires-python = ">= 3.11"
-license = { file = "LICENSE" }
-authors = [
-    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
-]
-maintainers = [
-    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
-]
-keywords = [
-    "parent",
-    "child",
-    "lookup",
-]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX :: Linux",
-    "Operating System :: MacOS",
-    "Environment :: Console",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
-dependencies = [
-    "typing-inspect>=0.9.0",
-]
 
-[project.urls]
-Homepage = "https://github.com/ClaasRostock/parent-lookup"
-Documentation = "https://ClaasRostock.github.io/parent-lookup/README.html"
-Repository = "https://github.com/ClaasRostock/parent-lookup.git"
-Issues = "https://github.com/ClaasRostock/parent-lookup/issues"
-Changelog = "https://github.com/ClaasRostock/parent-lookup/blob/main/CHANGELOG.md"
-
-
-[dependency-groups]
-dev = [
-    "pytest>=9.0",
-    "pytest-cov>=7.1",
-    "ruff>=0.15.9",
-    "pyright>=1.1.408",
-    "mypy>=1.19.1",
-    "sourcery>=1.43.0",
-    "pre-commit>=4.5",
-    "Sphinx>=9.0",
-    "sphinx-argparse-cli>=1.21.3",
-    "sphinx-autodoc-typehints>=3.6",
-    "sphinxcontrib-mermaid>=2.0",
-    "myst-parser>=5.0",
-    "furo>=2025.12",
-    "jupyter>=1.1.1",
-]
-
-[tool.uv]
-default-groups = [
-    "dev",
-]
-native-tls = true
-required-environments = [
-    "sys_platform == 'win32'",
-    "sys_platform == 'linux'",
-    "sys_platform == 'darwin'",
-]
-
+# ===== `mypy` settings =====
 
 [tool.mypy]
 plugins = []
@@ -107,7 +126,7 @@ mypy_path = "stubs"
 files = [
     "src",
     "tests",
-    # "demos",
+    # "examples",
 ]
 exclude = [
     "src/folder_to_be_excluded",
@@ -119,12 +138,14 @@ disable_error_code = [
 ]
 
 
+# ===== `pyright` settings =====
+
 [tool.pyright]
 stubPath = "stubs"
 include = [
     "src",
     "tests",
-    # "demos",
+    # "examples",
 ]
 exclude = [
     "**/node_modules",

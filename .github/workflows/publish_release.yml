@@ -5,13 +5,39 @@ on:
   push:
     tags:
       - v*
+  workflow_dispatch:
 
 jobs:
+  validate_release_ref:
+    name: Validate release tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require a valid version tag
+        env:
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          if [[ "$RELEASE_REF" != refs/tags/* ]]; then
+            echo "Release workflow must run from a version tag." >&2
+            exit 1
+          fi
+
+          tag="${RELEASE_REF#refs/tags/}"
+          release_tag_regex='^v([0-9]+!)?[0-9]+(\.[0-9]+)*([._-]?(alpha|a|beta|b|preview|pre|rc|c)[._-]?[0-9]*)?([._-]?(post|rev|r)[._-]?[0-9]*)?([._-]?dev[._-]?[0-9]*)?(\+[a-z0-9]+([._-][a-z0-9]+)*)?$'
+          shopt -s nocasematch
+          if [[ ! "$tag" =~ $release_tag_regex ]]; then
+            echo "Release tag '$tag' is not a valid version tag." >&2
+            exit 1
+          fi
+
   build_package:
+    needs:
+      - validate_release_ref
     uses: ./.github/workflows/_build_package.yml
+
   publish_package:
     name: Publish package
     needs:
+      - validate_release_ref
       - build_package
     runs-on: ubuntu-latest
     environment: release
@@ -19,7 +45,7 @@ jobs:
       id-token: write
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist
@@ -27,7 +53,10 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         # with:                                             # Uncomment this line to publish to testpypi
         #   repository-url: https://test.pypi.org/legacy/   # Uncomment this line to publish to testpypi
+
   merge_into_release:
+    needs:
+      - validate_release_ref
     uses: ./.github/workflows/_merge_into_release.yml
     secrets:
       RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}

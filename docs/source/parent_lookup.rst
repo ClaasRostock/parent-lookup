@@ -9,6 +9,7 @@ Subpackages
    :template: custom-module.rst
    :recursive:
 
+   parent_lookup.utils
 
 
 Modules

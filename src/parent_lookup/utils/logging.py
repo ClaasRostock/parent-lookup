@@ -18,25 +18,25 @@ def configure_logging(
 
     Sets the log levels and formats for the output, ensuring that logs are captured as specified.
 
-    Parameters
-    ----------
-    log_level_console : str, optional
-        log level for console output, by default "WARNING"
-    log_file : Path | None, optional
-        log file to be used. If None, file logging is disabled. by default None
-    log_level_file : str, optional
-        log level for file output, by default "WARNING"
+    Args:
+        log_level_console: Log level for console output. Defaults to
+            ``"WARNING"``.
+        log_file: File to write logs to. If ``None``, file logging is disabled.
+            Defaults to ``None``.
+        log_level_file: Log level for file output. Defaults to ``"WARNING"``.
 
-    Raises
-    ------
-    TypeError
-        if an invalid value for log_level_console or log_level_file is passed
+    Raises:
+        TypeError: If either log level is not a valid logging level.
 
-    Examples
-    --------
-        configure_logging(log_level_console="INFO", log_file=Path("app.log"), log_level_file="DEBUG")
+    Examples:
+        Configure console and file logging with different levels:
+
+        >>> configure_logging(
+        ...     log_level_console="INFO",
+        ...     log_file=Path("app.log"),
+        ...     log_level_file="DEBUG",
+        ... )
     """
-    # sourcery skip: extract-duplicate-method, extract-method
     log_level_console_numeric = getattr(logging, log_level_console.upper(), None)
     if not isinstance(log_level_console_numeric, int):
         raise TypeError(f"Invalid log level to console: {log_level_console_numeric}")
