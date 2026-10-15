@@ -22,6 +22,10 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * VS Code Settings:
   * VS Code Settings: (Recommended extensions): Removed 'sourcery.sourcery' (Sourcery).
 * ruff.toml: Updated target Python version to "py312"
+* Agent instructions: Require `actionlint` for workflow changes and relative
+  repository links in Markdown files.
+* prepare-commits skill: Place changelog entries in the commit with the matching
+  change, and stop and ask the user if interactive commit signing hangs.
 
 
 ### Dependencies
