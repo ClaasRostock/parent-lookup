@@ -1,0 +1,13 @@
+parent\_lookup.utils.logging
+============================
+
+.. automodule:: parent_lookup.utils.logging
+   :members:
+
+
+   
+   .. rubric:: Functions
+   .. autosummary::
+   
+      configure_logging
+   
