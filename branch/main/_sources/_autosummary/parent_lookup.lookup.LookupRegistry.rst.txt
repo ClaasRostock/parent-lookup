@@ -1,0 +1,31 @@
+LookupRegistry
+==============
+
+.. currentmodule:: parent_lookup.lookup
+
+.. autoclass:: LookupRegistry
+   :members:
+   :show-inheritance:
+
+
+   
+   .. automethod:: __init__
+   
+   .. rubric:: Methods
+   .. autosummary::
+   
+      ~LookupRegistry.__init__
+      ~LookupRegistry.lookup_parent
+      ~LookupRegistry.register_parent
+   
+   
+
+
+   
+   
+   .. rubric:: Attributes
+   .. autosummary::
+   
+      ~LookupRegistry.instance
+   
+   
